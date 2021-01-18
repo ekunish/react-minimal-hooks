@@ -1,3 +1,4 @@
+import { Box, TextField, Typography } from '@material-ui/core'
 import React from 'react'
 
 interface Props {
@@ -8,13 +9,20 @@ interface Props {
 
 export const TextInput: React.FC<Props> = (props) => {
   return (
-    <div>
-      <span>{props.title}</span>
-      <input
-        name={props.title}
-        type='text'
-        value={props.inputValue}
-        onChange={(e) => props.onChangeValue(e.target.value)} />
-    </div>
+    <Box m={2}>
+      <Box>
+        <Typography>{props.title}</Typography>
+      </Box>
+      <Box>
+        <TextField
+          label={props.title}
+          variant='filled'
+          value={props.inputValue}
+          onChange={(e) => {
+            props.onChangeValue(e.target.value)
+          }}
+        />
+      </Box>
+    </Box>
   )
 }

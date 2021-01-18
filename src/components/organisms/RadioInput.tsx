@@ -1,3 +1,4 @@
+import { Box, FormControlLabel, Radio, RadioGroup, Typography } from '@material-ui/core'
 import React from 'react'
 
 interface Props {
@@ -8,26 +9,32 @@ interface Props {
 
 
 export const RadioInput: React.FC<Props> = props => {
-  const Radio: string[] = ['1','2','3']
+  const RadioItem: string[] = ['1', '2', '3']
   return (
-    <div>
-      <span>{props.title}</span>
-
-      {Radio.map((id, idx) => {
-        return (
-          <div key={idx}>
-            <input
-              type='radio'
-              id={id}
-              name='radio-group'
-              value={`radio${id}`}
-              onChange={(e) => props.onChangeValue(e.target.value)} />
-            <label>{id}</label>
-          </div>
-        )
-      })}
-
-
-    </div>
+    <Box m={2}>
+      <Box>
+        <Typography>{props.title}</Typography>
+      </Box>
+      <Box>
+        <RadioGroup
+          onChange={
+            (e) => {
+              props.onChangeValue(e.target.value)
+            }
+          }
+        >
+          {RadioItem.map((id, idx) => {
+            return (
+              <FormControlLabel
+                key={id}
+                value={`radio${id}`}
+                label={`radio${id}`}
+                control={<Radio />}
+              />
+            )
+          })}
+        </RadioGroup>
+      </Box>
+    </Box>
   )
 }

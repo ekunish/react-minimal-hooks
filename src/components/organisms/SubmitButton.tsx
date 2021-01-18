@@ -1,3 +1,4 @@
+import { Box, Button } from '@material-ui/core'
 import React from 'react'
 
 interface Props {
@@ -7,9 +8,15 @@ interface Props {
 
 export const SubmitButton: React.FC<Props> = props => {
   return (
-    <div>
-      <button onClick={() => {props.onClick()}}>{props.title}
-      </button>
-    </div>
+    <Box m={2}>
+      <Button
+        variant='contained'
+        color='primary'
+        onClick={
+          () => {
+            props.onClick()
+          }
+        }>{props.title}</Button>
+    </Box>
   )
 }

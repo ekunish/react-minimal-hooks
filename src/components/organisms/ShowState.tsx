@@ -1,3 +1,4 @@
+import { Box, Typography } from '@material-ui/core'
 import React from 'react'
 
 interface Props {
@@ -8,11 +9,11 @@ interface Props {
 
 export const ShowState: React.FC<Props> = (props) => {
   return (
-    <div>
-      <label>[state]</label>
-      <div>{props.inputValue}</div>
-      <div>{props.selectedValue}</div>
-      <div>{props.clickCount}</div>
-    </div>
+    <Box m={2}>
+      <Typography>[state]</Typography>
+      <Typography>{props.inputValue}</Typography>
+      <Typography>{props.selectedValue}</Typography>
+      <Typography>{props.clickCount}</Typography>
+    </Box>
   )
 }
